@@ -1,3 +1,21 @@
-<p>
-  lunch works!
-</p>
+<div align="center"><h3>Select the lunch you want to buy</h3></div>
+
+<div *ngIf="veg">
+    <p-inplace align="center">
+         <span pInplaceDisplay>
+             Click to see menu
+          </span>
+         <span pInplaceContent>
+             <div>
+                 <img src="../../assets/images/vegMeals.jpg" alt="Meals">
+                 <span>
+                     <img src="../../assets/images/vegSymbol.jpg" alt="Meals">
+                     <span>Meals</span>
+                     <span><img src="../../assets/images/rupee.png" alt="Rupees">100</span>
+                     <p-splitButton label="ADD" icon="fa fa-plus" (onClick)="addItems()" [model]="options"></p-splitButton>
+                 </span>
+             </div>
+          </span>
+    </p-inplace>
+
+</div>

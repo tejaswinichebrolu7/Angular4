@@ -1,1 +1,19 @@
-<p-tabMenu [model]="items" [activeItem]="items[0]"></p-tabMenu> 
+<div align="center">
+    <h2>Select the items you want to order</h2>
+    <div align="right">
+        <span>{{cartValue}}</span>
+        <button pButton type="button" icon="fa fa-shopping-cart" iconPos="left" label="CART"></button>
+    </div>
+    <div>
+    <!--<p-tabMenu [model]="items" (onChange)="tabChange($event)"></p-tabMenu>-->
+    <p-dropdown icon="fa fa-caret-down" [options]="items" placeholder="Select an item" (onChange)="tabChange($event.value)"></p-dropdown>
+    </div>
+</div>
+
+
+<!--<router-outlet></router-outlet>-->
+
+<app-breakfast (notifyParent)="getNotification($event)" *ngIf="breakfast"></app-breakfast>
+<app-lunch (notifyParent)="getNotification($event)" *ngIf="lunch"></app-lunch>
+<app-dinner (notifyParent)="getNotification($event)" *ngIf="dinner"></app-dinner>
+

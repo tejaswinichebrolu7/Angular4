@@ -1,1 +1,46 @@
-<div>Select the breakfast you want to buy</div>
+<div align="center">Select the breakfast you want to buy</div>
+
+<div *ngIf="veg">
+    <p-inplace align="center">
+         <span pInplaceDisplay>
+             Click to see menu
+          </span>
+         <span pInplaceContent align="center">
+             <div>
+                 <img src="../../assets/images/idly.jpg" alt="Idly"/>
+                 <span>
+                     <img src="../../assets/images/vegSymbol.jpg" alt="Idly">
+                     <span>Idly</span>
+                     <span><img src="../../assets/images/rupee.png" alt="Rupees"/>50</span>
+                     <p-splitButton label="ADD" icon="fa fa-plus" (onClick)="addItems()" [model]="options"></p-splitButton>
+                 </span>
+             
+                 <img src="../../assets/images/dosa.jpg" alt="Dosa"/>
+                  <span>
+                 <span>Dosa</span>
+                     <span><img src="../../assets/images/rupee.png" alt="Rupees"/>60</span>
+                     <p-splitButton label="ADD" icon="fa fa-plus" (onClick)="addItems()" [model]="options"></p-splitButton>
+                  </span>
+             </div>
+             <div>
+                 <img src="../../assets/images/poori.jpg" alt="Poori"/>
+                  <span>
+                 <span>Poori</span>
+                 <span><img src="../../assets/images/rupee.png" alt="Rupees"/>70</span>
+                  <p-splitButton label="ADD" icon="fa fa-plus" (onClick)="addItems()" [model]="options"></p-splitButton>
+                  </span>
+             
+                <img src="../../assets/images/vada.jpg" alt="Vada"/>
+                 <span>
+                <span>Vada</span>
+                <span><img src="../../assets/images/rupee.png" alt="Rupees"/>80</span>
+                <p-splitButton label="ADD" icon="fa fa-plus" (onClick)="addItems()" [model]="options"></p-splitButton>            
+                 </span>
+             </div>
+
+          </span>
+    </p-inplace>
+
+</div>
+
+<!--<p-button label="Click" ></p-button>-->

@@ -8,11 +8,20 @@ import { DinnerComponent } from './dinner/dinner.component';
 import { NonVegmenuComponent } from './non-vegmenu/non-vegmenu.component';
 
 const routes: Routes = [
-  { path: 'vegmenu', component: VegmenuComponent },
-  { path: 'non-vegmenu', component: NonVegmenuComponent },
-  { path: 'breakfast', component: BreakfastComponent },
-  { path: 'lunch', component: LunchComponent },
-  { path: 'dinner', component: DinnerComponent },
+  { path: 'vegmenu', component: VegmenuComponent,
+   children: [
+      { path: 'breakfast', component: BreakfastComponent },
+      { path: 'lunch', component: LunchComponent },
+      { path: 'dinner', component: DinnerComponent }
+    ]
+   },
+  { path: 'non-vegmenu', component: NonVegmenuComponent,
+   children: [
+      { path: 'breakfast', component: BreakfastComponent },
+      { path: 'lunch', component: LunchComponent },
+      { path: 'dinner', component: DinnerComponent }
+    ]
+  },
   { path: 'dashboard', component: DashboardComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];

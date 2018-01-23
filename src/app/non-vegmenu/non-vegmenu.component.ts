@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from "@angular/router";
 
 import { MenuItem } from 'primeng/primeng';
 
@@ -10,13 +11,17 @@ import { MenuItem } from 'primeng/primeng';
 export class NonVegmenuComponent implements OnInit {
 
   items:MenuItem[];
-  constructor() { }
+  constructor(
+        private route: ActivatedRoute,
+        private router: Router
+    ){};
 
   ngOnInit() {
+     //this.router.navigate(['/breakfast']);
     this.items = [
-            {label: 'BreakFast', icon: 'fa-smile-o',url:'/breakfast' },
-            {label: 'Lunch', icon: 'fa-smile-o',url:'/lunch' },
-            {label: 'Dinner', icon: 'fa-smile-o',url:'/dinner' }
+            {label: 'BreakFast', icon: 'fa fa-coffee',url:'/non-vegmenu/breakfast' },
+            {label: 'Lunch', icon: 'fa fa-thermometer-full',url:'/non-vegmenu/lunch' },
+            {label: 'Dinner', icon: 'fa fa-glass',url:'/non-vegmenu/dinner' }
         ];
   }
 
