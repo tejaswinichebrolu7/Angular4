@@ -30,10 +30,13 @@ export class BreakfastComponent implements OnInit {
       ];
   }
 
-  addItems(){
+  addItems(event:any,itemName:String,itemCost:String){
     /*this.count += 1;
     this.notifyParent.emit(this.count);*/
-    this.notifyParent.emit();
+    //console.log(itemName+""+itemCost);
+    event.itemName = itemName;
+     event.itemCost = itemCost;
+    this.notifyParent.emit(event);
   }
 
 }

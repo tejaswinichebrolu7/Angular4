@@ -15,6 +15,11 @@ import { InplaceModule } from 'primeng/primeng';
 import { ButtonModule } from 'primeng/primeng';
 import { SplitButtonModule } from 'primeng/primeng';
 import { DropdownModule, SelectItem }  from 'primeng/primeng';
+import { DataListModule } from 'primeng/primeng';
+import { RatingModule } from 'primeng/primeng';
+import { MessagesModule } from 'primeng/primeng';
+import { MessageModule } from 'primeng/primeng';
+
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +29,8 @@ import { VegmenuComponent } from './vegmenu/vegmenu.component';
 import { LunchComponent } from './lunch/lunch.component';
 import { DinnerComponent } from './dinner/dinner.component';
 import { NonVegmenuComponent } from './non-vegmenu/non-vegmenu.component';
+import { Cart } from './models/cart';
+import { CheckOutComponent } from './check-out/check-out.component';
 
 
 @NgModule({
@@ -34,7 +41,8 @@ import { NonVegmenuComponent } from './non-vegmenu/non-vegmenu.component';
     VegmenuComponent,
     LunchComponent,
     DinnerComponent,
-    NonVegmenuComponent
+    NonVegmenuComponent,
+    CheckOutComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +57,11 @@ import { NonVegmenuComponent } from './non-vegmenu/non-vegmenu.component';
     InplaceModule,
     ButtonModule,
     SplitButtonModule,
-    DropdownModule
+    DropdownModule,
+    DataListModule,
+    RatingModule,
+    MessagesModule,
+    MessageModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],

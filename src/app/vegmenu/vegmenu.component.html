@@ -1,19 +1,52 @@
 <div align="center">
     <h2>Select the items you want to order</h2>
     <div align="right">
-        <span>{{cartValue}}</span>
-        <button pButton type="button" icon="fa fa-shopping-cart" iconPos="left" label="CART"></button>
-    </div>
-    <div>
-    <!--<p-tabMenu [model]="items" (onChange)="tabChange($event)"></p-tabMenu>-->
-    <p-dropdown icon="fa fa-caret-down" [options]="items" placeholder="Select an item" (onChange)="tabChange($event.value)"></p-dropdown>
+        <div *ngIf="rated"><p-message severity="success" text="Your response has been recorded. Thanks for rating us"></p-message></div>
+        <span *ngIf="(cartItems.length > 0)">{{cartItems.length}}</span>
+        <button pButton type="button" icon="fa fa-shopping-cart" iconPos="left" label="CART" (click)="displayCartItems()"></button>
+        <button pButton type="button" icon="fa fa-star-o" iconPos="left" label="Rate Us" class="ui-button-warning" (click)=rateUs()></button>
+        <span *ngIf="rate" (click)="ratingSuccess()"><p-rating [(ngModel)]="val"></p-rating></span>
     </div>
 </div>
 
+     <div *ngIf="(cartValue > 0 && display == true)" class="rightSide">
+        <p-dataList [value]="cartItems" >
+             <p-header>
+                  Total Items : {{cartValue}}  Sub Total : {{ totalItemCost }}
+             </p-header>
+            <ng-template let-cartItem pTemplate="item">
+                 <div *ngIf="(idlyCount > 0 ||  pooriCount > 0 || vadaCount > 0 || dosaCount > 0)">
+                    <img src="../../assets/images/vegSymbol.jpg" alt="Veg">
+                     <span>{{ cartItem.itemName }}</span>
+                     <span>
+                          <button pButton type="button" icon="fa fa-minus" iconPos="left" (click)="removeItemFromCart(cartItem.itemName,cartItem.itemCost)"></button>
+                          <span *ngIf="(cartItem.itemName == 'Idly' && idlyCount > 0)">{{idlyCount}}</span>
+                          <span *ngIf="(cartItem.itemName == 'Poori' && pooriCount > 0)">{{pooriCount}}</span>
+                          <span *ngIf="(cartItem.itemName == 'Vada') && vadaCount > 0">{{vadaCount}}</span>
+                          <span *ngIf="(cartItem.itemName == 'Dosa') && dosaCount > 0">{{dosaCount}}</span>
+                          <button pButton type="button" icon="fa fa-plus" iconPos="left" (click)="addItemToCart(cartItem.itemName,cartItem.itemCost)"></button>
+                     </span>
+                    <span><img src="../../assets/images/rupee.png" alt="Rupees"/>{{ cartItem.itemCost }}</span>
+                 </div>
+             </ng-template>
+             <p-footer styleClass=".datalist-reduceSize">
+                 <button pButton type="button" icon="fa fa-arrow-right" class="ui-button-success" iconPos="left" label="Check Out" (click)="checkOutItems()"></button>
+             </p-footer>
+        </p-dataList>
+    </div>
+
+<div *ngIf="checkOut">    
+    <div align="center">
+    <!--<p-tabMenu [model]="items" (onChange)="tabChange($event)"></p-tabMenu>-->
+    <p-dropdown icon="fa fa-caret-down" [options]="items" placeholder="Select an item" (onChange)="tabChange($event.value)"></p-dropdown>
+</div>
+
+        
+<app-breakfast (notifyParent)="getNotification($event)" *ngIf="breakfast"></app-breakfast>
+<app-lunch (notifyParent)="getNotification($event)" *ngIf="lunch"></app-lunch>
+<app-dinner (notifyParent)="getNotification($event)" *ngIf="dinner"></app-dinner>   
 
 <!--<router-outlet></router-outlet>-->
 
-<app-breakfast (notifyParent)="getNotification($event)" *ngIf="breakfast"></app-breakfast>
-<app-lunch (notifyParent)="getNotification($event)" *ngIf="lunch"></app-lunch>
-<app-dinner (notifyParent)="getNotification($event)" *ngIf="dinner"></app-dinner>
-
+</div>
+<app-check-out *ngIf="!checkOut" (notifyParentToModifyCartData)="displayItems($event)"></app-check-out>

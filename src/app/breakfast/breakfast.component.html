@@ -1,4 +1,4 @@
-<div align="center">Select the breakfast you want to buy</div>
+<div align="center"><h3>Select the breakfast you want to buy</h3></div>
 
 <div *ngIf="veg">
     <p-inplace align="center">
@@ -12,14 +12,14 @@
                      <img src="../../assets/images/vegSymbol.jpg" alt="Idly">
                      <span>Idly</span>
                      <span><img src="../../assets/images/rupee.png" alt="Rupees"/>50</span>
-                     <p-splitButton label="ADD" icon="fa fa-plus" (onClick)="addItems()" [model]="options"></p-splitButton>
+                     <p-splitButton label="ADD" icon="fa fa-plus" (onClick)="addItems($event,'Idly','50')" [model]="options"></p-splitButton>
                  </span>
              
                  <img src="../../assets/images/dosa.jpg" alt="Dosa"/>
                   <span>
                  <span>Dosa</span>
                      <span><img src="../../assets/images/rupee.png" alt="Rupees"/>60</span>
-                     <p-splitButton label="ADD" icon="fa fa-plus" (onClick)="addItems()" [model]="options"></p-splitButton>
+                     <p-splitButton label="ADD" icon="fa fa-plus" (onClick)="addItems($event,'Dosa','60')" [model]="options"></p-splitButton>
                   </span>
              </div>
              <div>
@@ -27,14 +27,14 @@
                   <span>
                  <span>Poori</span>
                  <span><img src="../../assets/images/rupee.png" alt="Rupees"/>70</span>
-                  <p-splitButton label="ADD" icon="fa fa-plus" (onClick)="addItems()" [model]="options"></p-splitButton>
+                  <p-splitButton label="ADD" icon="fa fa-plus" (onClick)="addItems($event,'Poori','70')" [model]="options"></p-splitButton>
                   </span>
              
                 <img src="../../assets/images/vada.jpg" alt="Vada"/>
                  <span>
                 <span>Vada</span>
                 <span><img src="../../assets/images/rupee.png" alt="Rupees"/>80</span>
-                <p-splitButton label="ADD" icon="fa fa-plus" (onClick)="addItems()" [model]="options"></p-splitButton>            
+                <p-splitButton label="ADD" icon="fa fa-plus" (onClick)="addItems($event,'Vada','80')" [model]="options"></p-splitButton>            
                  </span>
              </div>
 
