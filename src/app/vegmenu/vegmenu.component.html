@@ -1,5 +1,8 @@
 <div align="center">
     <h2>Select the items you want to order</h2>
+    <p-checkbox name="group1" value="Veg" label="Veg" [(ngModel)]="selectedType"></p-checkbox>
+    <p-checkbox name="group1" value="Non-Veg" label="Non-Veg" [(ngModel)]="selectedType"></p-checkbox>
+    <div *ngIf="selected">Selected Type: <span *ngFor="let type of selectedType" style="margin-right:10px">{{type}}</span></div>
     <div align="right">
         <div *ngIf="rated"><p-message severity="success" text="Your response has been recorded. Thanks for rating us"></p-message></div>
         <span *ngIf="(cartItems.length > 0)">{{cartItems.length}}</span>
@@ -42,7 +45,7 @@
 </div>
 
         
-<app-breakfast (notifyParent)="getNotification($event)" *ngIf="breakfast"></app-breakfast>
+<app-breakfast (notifyParent)="getNotification($event)" [hidden]="breakfast"></app-breakfast>
 <app-lunch (notifyParent)="getNotification($event)" *ngIf="lunch"></app-lunch>
 <app-dinner (notifyParent)="getNotification($event)" *ngIf="dinner"></app-dinner>   
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Output} from '@angular/core';
+import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Output, Input} from '@angular/core';
 
 import { MenuItem } from 'primeng/primeng';
 import { ButtonModule } from 'primeng/primeng';
@@ -12,13 +12,14 @@ export class BreakfastComponent implements OnInit {
 
   items : MenuItem[];
   options : MenuItem[];
-  veg:boolean=false;
+  @Input() veg:boolean =  false;;
   @Output() notifyParent: EventEmitter<any> = new EventEmitter();
+  @Input() itemType: String = "";
 
   constructor() { }
 
   ngOnInit() {
-    this.veg= true;
+    //this.veg= true;
      this.items = [
             {label: 'BreakFast', icon: 'fa-smile-o',url:'/breakfast' },
             {label: 'Lunch', icon: 'fa-smile-o',url:'/lunch' },

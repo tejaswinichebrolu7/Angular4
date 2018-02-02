@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA,ViewChild,Input,Output } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule }    from '@angular/forms';
@@ -19,6 +19,7 @@ import { DataListModule } from 'primeng/primeng';
 import { RatingModule } from 'primeng/primeng';
 import { MessagesModule } from 'primeng/primeng';
 import { MessageModule } from 'primeng/primeng';
+import { CheckboxModule } from 'primeng/primeng';
 
 
 import { AppComponent } from './app.component';
@@ -31,6 +32,7 @@ import { DinnerComponent } from './dinner/dinner.component';
 import { NonVegmenuComponent } from './non-vegmenu/non-vegmenu.component';
 import { Cart } from './models/cart';
 import { CheckOutComponent } from './check-out/check-out.component';
+import { OasComponent } from './oas/oas.component';
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import { CheckOutComponent } from './check-out/check-out.component';
     LunchComponent,
     DinnerComponent,
     NonVegmenuComponent,
-    CheckOutComponent
+    CheckOutComponent,
+    OasComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { CheckOutComponent } from './check-out/check-out.component';
     DataListModule,
     RatingModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    CheckboxModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],

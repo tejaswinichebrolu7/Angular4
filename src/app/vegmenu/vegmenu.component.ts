@@ -1,17 +1,18 @@
-import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, OnInit, AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 
 import { MenuItem } from 'primeng/primeng';
 import { SelectItem } from 'primeng/primeng';
 
 import { Cart } from '../models/cart';
+import { BreakfastComponent } from '../breakfast/breakfast.component';
 
 @Component({
   selector: 'app-vegmenu',
   templateUrl: './vegmenu.component.html',
   styleUrls: ['./vegmenu.component.css']
 })
-export class VegmenuComponent implements OnInit {
+export class VegmenuComponent implements OnInit,AfterViewInit {
 
  constructor(
         private route: ActivatedRoute,
@@ -37,6 +38,10 @@ export class VegmenuComponent implements OnInit {
   rated : boolean = false;
   display = false;
   checkOut : boolean = true;
+  selected:boolean = false;
+  veg:boolean;
+
+  @ViewChild(BreakfastComponent) breakfastComponent: BreakfastComponent;
   //cartSize : any = 0;
 
     ngOnInit() {
@@ -50,6 +55,9 @@ export class VegmenuComponent implements OnInit {
             {label: 'Lunch', value:"Lunch" },
             {label: 'Dinner' , value:"Dinner"}
         ];
+    }
+    ngAfterViewInit(){
+        this.breakfastComponent.veg = true;
     }
 
     tabChange(value:any){
